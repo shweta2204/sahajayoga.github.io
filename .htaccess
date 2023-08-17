@@ -5,12 +5,15 @@
 # Any changes to the directives between these markers will be overwritten.
 <IfModule mod_rewrite.c>
 RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^(www.)?github.com/shweta2204/sahajayoga.github.io$
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /facebookjobs/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /facebookjobs/index.php [L]
+RewriteRule ^(/)?$ sahajayoga.github.io/index.php [L]
+
 </IfModule>
 
 # END WordPress
